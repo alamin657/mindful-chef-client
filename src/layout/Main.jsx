@@ -9,8 +9,11 @@ const Main = () => {
         <div>
             <Header></Header>
             {/* <Home></Home> */}
+            <div className='min-h-[calc(100vh)]'>
+                <Outlet></Outlet>
+            </div>
             <Footer></Footer>
-            <Outlet></Outlet>
+
         </div>
     );
 };

@@ -1,4 +1,5 @@
 import React from 'react';
+import { FaCheck } from "react-icons/fa";
 const Singledetails = ({ details }) => {
     const { name, picture, experience, recipes, likes } = details
     return (
@@ -12,7 +13,7 @@ const Singledetails = ({ details }) => {
                     <p>Experience:{experience}</p>
                     <div className='flex gap-1'>
                         <p>Recipes:{recipes}</p>
-                        <p>Likes:{likes} </p>
+                        <p className='flex gap-1'>Likes:{likes}<FaCheck className='mt-1'></FaCheck></p>
                     </div>
                     <div className="card-actions">
                         <button className="btn btn-primary">View Recipes</button>

@@ -10,12 +10,11 @@ const Main = () => {
     return (
         <div>
             <Header></Header>
+
             <div className='min-h-[calc(100vh)]'>
                 <Outlet></Outlet>
             </div>
-            <Chefdetail></Chefdetail>
-            <ChefRecipe1></ChefRecipe1>
-            <ChefRecipe2></ChefRecipe2>
+
             <Footer></Footer>
 
         </div>

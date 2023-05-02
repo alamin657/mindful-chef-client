@@ -1,7 +1,6 @@
-import { data } from 'autoprefixer';
+
 import React, { useEffect, useState } from 'react';
 import Singledetails from './Singledetails';
-
 const Chefdetail = () => {
     const [chefdetails, setChefdetails] = useState([]);
     useEffect(() => {

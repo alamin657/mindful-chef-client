@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+
 const Header = () => {
     return (
         <div className="navbar">
@@ -16,7 +17,8 @@ const Header = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <img className="rounded-full w-8" src="https://images.pexels.com/photos/3814446/pexels-photo-3814446.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
+                <img className="rounded-full w-8 mr-1" src="https://images.pexels.com/photos/3814446/pexels-photo-3814446.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
+                <button className="btn btn-active">User Login</button>
             </div>
         </div>
     );

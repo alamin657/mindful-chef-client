@@ -1,6 +1,6 @@
 
 import React, { useContext } from 'react';
-import { signInWithPopup, GoogleAuthProvider, GithubAuthProvider } from "firebase/auth";
+import { GoogleAuthProvider, GithubAuthProvider } from "firebase/auth";
 import { FaGoogle, FaGithub } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Providers/AuthProviders';
@@ -20,6 +20,7 @@ const Login = () => {
             .then(result => {
                 const loggedUser = result.user;
                 console.log(loggedUser);
+                form.reset()
             })
             .catch(error => {
                 console.error(error)
@@ -70,6 +71,7 @@ const Login = () => {
                         </div>
                         <button className="btn btn-primary">Login</button>
                         <Link to='/register'>Please register</Link>
+
                     </form>
                     <div className="form-control ">
 

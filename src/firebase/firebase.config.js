@@ -4,13 +4,14 @@ import { initializeApp } from "firebase/app";
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
+console.log('environment variable', import.meta.env.VITE_apiKey)
 const firebaseConfig = {
-    apiKey: "AIzaSyBIUBsuvqyQZPKeDF2U2JGzdlEjSpjapu0",
-    authDomain: "mindful-chef-client.firebaseapp.com",
-    projectId: "mindful-chef-client",
-    storageBucket: "mindful-chef-client.appspot.com",
-    messagingSenderId: "314869071979",
-    appId: "1:314869071979:web:9c8bbcf606e0fa81e9712e"
+    apiKey: import.meta.env.VITE_APIKEY,
+    authDomain: import.meta.env.VITE_AUTHDOMAIN,
+    projectId: import.meta.env.VITE_PROJECTID,
+    storageBucket: import.meta.env.VITE_STORAGEBUCKET,
+    messagingSenderId: import.meta.env.VITE_MESSAGINGSENDERID,
+    appId: import.meta.env.VITE_APPID
 };
 
 // Initialize Firebase

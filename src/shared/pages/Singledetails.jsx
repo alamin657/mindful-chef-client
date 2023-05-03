@@ -1,10 +1,11 @@
 import React from 'react';
 import { FaCheck } from "react-icons/fa";
-import { Link, useLoaderData, useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 const Singledetails = ({ details }) => {
-    const { id } = useParams()
-    const viewdetails = useLoaderData();
-    const { chefName, chefPicture, yearsOfExperienc, numOfRecipes, likes } = details
+    // console.log(details)
+    const { id, chefName, chefPicture, yearsOfExperienc, numOfRecipes, likes } = details;
+    // console.log(id);
     return (
         <div>
             <div className=" card w-96 bg-base-100">
@@ -18,11 +19,12 @@ const Singledetails = ({ details }) => {
                         <p>Recipes:{numOfRecipes}</p>
                         <p className='flex gap-1'>Likes:{likes}<FaCheck className='mt-1'></FaCheck></p>
                     </div>
-                    <div className="card-actions">
-                        <Link to={`/chefdetails/${id}`}><button className="btn btn-primary">View Recipes</button></Link>
+                    <div>
+                        <Link to={`${id}`}><button className='btn btn-primary'>Review Recipes</button> </Link>
                     </div>
                 </div>
             </div>
+
         </div>
     );
 };

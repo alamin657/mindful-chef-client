@@ -5,8 +5,7 @@ import Blog from "../shared/pages/Blog";
 import Login from "../shared/pages/Login";
 import Register from "../shared/pages/Register";
 import Errorpage from "../shared/pages/Errorpage";
-import ViewRecipes from "../shared/pages/ViewRecipes";
-
+import Review from "../Home/Review";
 const router = createBrowserRouter([
     {
         path: '/',
@@ -28,16 +27,15 @@ const router = createBrowserRouter([
             path: 'register',
             element: <Register></Register>
         },
-        {
-            path: '/chefdetails/:id',
-            element: <ViewRecipes></ViewRecipes>,
-            loader: ({ params }) => fetch(`http://localhost:5000/chefdetails/${params.id}`)
-        }
-            // {
-            //     path: 'viewrecipes',
-            //     element: <ViewRecipes></ViewRecipes>
-            // }
+
         ]
+
+    },
+    {
+        path: ':id',
+        element: <Review></Review>,
+        loader: ({ params }) => fetch(`http://localhost:5000/chefdetails/${params.id}`)
     }
+
 ])
 export default router;

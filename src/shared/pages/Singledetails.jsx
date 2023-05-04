@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 // import { Link } from 'react-router-dom';
 const Singledetails = ({ details }) => {
     // console.log(details)
-    const { id, chefName, chefPicture, yearsOfExperienc, numOfRecipes, likes } = details;
+    const { id, chefName, chefPicture, yearsOfExperience, numOfRecipes, likes } = details;
     // console.log(id);
     return (
         <div>
@@ -14,7 +14,7 @@ const Singledetails = ({ details }) => {
                 </figure>
                 <div className="card-body items-center text-center">
                     <h2 className="card-title">{chefName}</h2>
-                    <p>Experience:{yearsOfExperienc}</p>
+                    <p>Experience:{yearsOfExperience}</p>
                     <div className='flex gap-1'>
                         <p>Recipes:{numOfRecipes}</p>
                         <p className='flex gap-1'>Likes:{likes}<FaCheck className='mt-1'></FaCheck></p>

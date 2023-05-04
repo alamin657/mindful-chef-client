@@ -3,15 +3,15 @@ import { AuthContext } from '../../Providers/AuthProviders';
 import { Link } from 'react-router-dom';
 
 const Register = () => {
-    const { user, createUser } = useContext(AuthContext);
+    const { createUser } = useContext(AuthContext);
     const handleRegister = event => {
         event.preventDefault()
         const form = event.target;
         const name = form.name.value;
-        const photourl = form.photourl.value;
+        const photo = form.photo.value;
         const email = form.email.value;
         const password = form.email.value;
-        console.log(name, photourl, email, password);
+        console.log(name, photo, email, password);
         createUser(email, password)
             .then(result => {
                 const loggedUser = result.user
@@ -39,9 +39,9 @@ const Register = () => {
                         </div>
                         <div className="form-control">
                             <label className="label">
-                                <span className="label-text">Photo url</span>
+                                <span className="label-text">Photo Url</span>
                             </label>
-                            <input type="text" name='photourl' placeholder="photourl" className="input input-bordered" required />
+                            <input type="text" name='photo' placeholder="photo" className="input input-bordered" required />
                         </div>
                         <div className="form-control">
                             <label className="label">
@@ -58,7 +58,7 @@ const Register = () => {
                         <div className="form-control mt-6">
                             <button className="btn btn-primary">Register</button>
                         </div>
-                        <Link to='/login'>Already have an Account</Link>
+                        <button>Already have an Account?<Link to='/login'>Login</Link></button>
                     </form>
                 </div>
             </div>

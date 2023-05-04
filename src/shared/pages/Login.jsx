@@ -1,34 +1,28 @@
 
 import React, { useContext } from 'react';
-import { GoogleAuthProvider, GithubAuthProvider } from "firebase/auth";
 import { FaGoogle, FaGithub } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Providers/AuthProviders';
 const Login = () => {
-    const { googleProviderLogin, createUser, githubProviderLogin } = useContext(AuthContext);
-    const googleProvider = new GoogleAuthProvider();
-    const githubProvider = new GithubAuthProvider();
+    const { signIn, githubProviderLogin, googleProviderLogin } = useContext(AuthContext);
     const handleLogin = event => {
         event.preventDefault();
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
         console.log(email, password);
-
-
-        createUser(email, password)
+        signIn(email, password)
             .then(result => {
                 const loggedUser = result.user;
                 console.log(loggedUser);
-                form.reset()
             })
             .catch(error => {
-                console.error(error)
+                console.error(error);
             })
     }
     const handleGooogleSignIn = () => {
 
-        googleProviderLogin(googleProvider)
+        googleProviderLogin()
             .then(result => {
                 const googleUser = result.user;
                 console.log(googleUser);
@@ -38,7 +32,7 @@ const Login = () => {
             })
     }
     const handleGithubSignIn = () => {
-        githubProviderLogin(githubProvider)
+        githubProviderLogin()
             .then(result => {
                 const githubUser = result.user;
                 console.log(githubUser);
@@ -70,14 +64,14 @@ const Login = () => {
                             <input type="password" name='password' placeholder="password" className="input input-bordered" required />
                         </div>
                         <button className="btn btn-primary">Login</button>
-                        <Link to='/register'>Please register</Link>
-
                     </form>
                     <div className="form-control ">
 
                         <button onClick={handleGooogleSignIn} className="btn btn-outline btn-primary"> <FaGoogle></FaGoogle> Google</button>
                         <button onClick={handleGithubSignIn} className="btn btn-outline btn-secondary mt-1 "><FaGithub></FaGithub> Github</button>
+
                     </div>
+                    <Link className='p-2 underline' to='/register'>Please register</Link>
                 </div>
             </div>
         </div>

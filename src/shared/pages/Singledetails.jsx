@@ -20,7 +20,7 @@ const Singledetails = ({ details }) => {
                         <p className='flex gap-1'>Likes:{likes}<FaCheck className='mt-1'></FaCheck></p>
                     </div>
                     <div>
-                        <Link to={`${id}`}><button className='btn btn-primary'>Review Recipes</button> </Link>
+                        <Link to={`/details/${id}`}><button className='btn btn-primary'>Review Details</button></Link>
                     </div>
                 </div>
             </div>

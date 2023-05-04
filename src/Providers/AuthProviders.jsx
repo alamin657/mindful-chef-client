@@ -1,23 +1,28 @@
-import React, { createContext, useState } from 'react';
-import { createUserWithEmailAndPassword, getAuth, signInWithPopup } from "firebase/auth";
+import React, { createContext } from 'react';
+import { GithubAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import app from '../firebase/firebase.config';
 export const AuthContext = createContext()
+const googleProvider = new GoogleAuthProvider();
+const githubProvider = new GithubAuthProvider();
 const auth = getAuth(app);
 const AuthProviders = ({ children }) => {
-    const [user, setUser] = useState(null)
-
+    const user = null
     const createUser = (email, password) => {
         return createUserWithEmailAndPassword(auth, email, password)
     }
-    const googleProviderLogin = (provider) => {
-        return signInWithPopup(auth, provider);
+    const signIn = (email, password) => {
+        return signInWithEmailAndPassword(auth, email, password);
     }
-    const githubProviderLogin = (provider) => {
-        return signInWithPopup(auth, provider)
+    const googleProviderLogin = () => {
+        return signInWithPopup(auth, googleProvider);
+    }
+    const githubProviderLogin = () => {
+        return signInWithPopup(auth, githubProvider)
     }
     const authInfo = {
         user,
         createUser,
+        signIn,
         googleProviderLogin,
         githubProviderLogin
 

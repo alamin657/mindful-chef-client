@@ -27,15 +27,16 @@ const router = createBrowserRouter([
             path: 'register',
             element: <Register></Register>
         },
+        {
+            path: 'details/:id',
+            element: <Review></Review>,
+            loader: ({ params }) => fetch(`http://localhost:5000/chefdetails/${params.id}`)
+        }
 
         ]
 
     },
-    {
-        path: ':id',
-        element: <Review></Review>,
-        loader: ({ params }) => fetch(`http://localhost:5000/chefdetails/${params.id}`)
-    }
+
 
 ])
 export default router;

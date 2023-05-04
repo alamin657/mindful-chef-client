@@ -1,14 +1,17 @@
 import React from 'react';
 import { useLoaderData, useParams } from 'react-router-dom';
+import SignleReview from './Home/SignleReview';
 
 const Review = () => {
     const { id } = useParams();
     console.log(id)
-    const details = useLoaderData()
-    console.log(details)
+    const reviws = useLoaderData()
+    console.log(reviws)
+
+
     return (
         <div>
-            <p>djfdlkjfd</p>
+            <h1>{reviws.chefName}</h1>
         </div>
     );
 };

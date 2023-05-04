@@ -31,8 +31,9 @@ const router = createBrowserRouter([
         {
             path: 'details/:id',
             element: <PrivateRoute><Review></Review></PrivateRoute>,
-            loader: ({ params }) => fetch(`http://localhost:5000/chefdetails/${params.id}`)
-            // loader: ({ params }) => fetch(`https://mindful-chef-server-alamin657.vercel.app/chefdetails/${params.id}`)
+            // loader: ({ params }) => fetch(`http://localhost:5000/chefdetails/${params.id}`)
+            loader: ({ params }) => fetch(`https://mindful-chef-server-alamin657.vercel.app/chefdetails/${params.id}`)
+
 
         }
 

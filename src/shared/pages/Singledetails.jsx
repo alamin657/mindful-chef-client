@@ -16,7 +16,7 @@ const Singledetails = ({ details }) => {
                     </LazyLoad>
                 </figure>
                 <div className="card-body items-center text-center">
-                    <h2 className="card-title">{chefName}</h2>
+                    <h2 className="card-title underline">{chefName}</h2>
                     <p>Experience:{yearsOfExperience}</p>
                     <div className='flex gap-1'>
                         <p>Recipes:{numOfRecipes}</p>

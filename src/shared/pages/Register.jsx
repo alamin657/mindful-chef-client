@@ -1,25 +1,35 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { AuthContext } from '../../Providers/AuthProviders';
 import { Link } from 'react-router-dom';
 
 const Register = () => {
+    const [error, setError] = useState('');
+    const [success, setSuccess] = useState('')
     const { createUser } = useContext(AuthContext);
     const handleRegister = event => {
         event.preventDefault()
+        setSuccess('');
+        setError('');
         const form = event.target;
         const name = form.name.value;
         const photo = form.photo.value;
         const email = form.email.value;
         const password = form.password.value;
         console.log(name, photo, email, password);
+        if (password.length < 6) {
+            setError('Please add at least 6 characters in your password')
+        }
         createUser(email, password)
             .then(result => {
                 const loggedUser = result.user
                 console.log(loggedUser);
+                setSuccess('User has created successfully')
+                setError('')
 
             })
             .catch(error => {
                 console.log(error)
+                setError(error.message)
             })
     }
     return (
@@ -60,6 +70,8 @@ const Register = () => {
                         </div>
                         <button>Already have an Account?<Link to='/login'>Login</Link></button>
                     </form>
+                    <p>{error}</p>
+                    <p>{success}</p>
                 </div>
             </div>
         </div>

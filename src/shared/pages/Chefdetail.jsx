@@ -10,7 +10,7 @@ const Chefdetail = () => {
     }, [])
     return (
         <div>
-            <h4 className='text-center text-red-600'>The home page will have a Chef section with at least six cards.</h4>
+            <h4 className='text-center text-2xl mt-1'>Famous <small className='text-blue-500'>Chef </small> Category</h4>
             <div className='grid grid-cols-3 gap-1'>
                 {
                     chefdetails.map(details => <Singledetails

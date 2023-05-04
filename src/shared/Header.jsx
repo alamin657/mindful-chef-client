@@ -4,7 +4,6 @@ import { AuthContext } from '../Providers/AuthProviders';
 
 
 const Header = () => {
-
     const { user, logOut } = useContext(AuthContext)
     const handleLogout = () => {
         logOut()
@@ -12,9 +11,9 @@ const Header = () => {
             .catch(error => console.log(error))
     }
     return (
-        <div className="navbar">
+        <div className="navbar bg-slate-300">
             <div className="navbar-start">
-                <a className=" text-xl">Mindful Chef</a>
+                <a className=" text-xl text-orange-500">Mindful Chef</a>
             </div>
             <div className="navbar-center md:hidden lg:flex ">
                 <ul className="menu menu-horizontal px-1 ">
@@ -27,7 +26,8 @@ const Header = () => {
             </div>
             <div className="navbar-end">
                 {
-                    user && <img className="rounded-full w-8 mr-1" src="https://images.pexels.com/photos/3814446/pexels-photo-3814446.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
+                    user && <img
+                        title={user?.displayName} className="rounded-full w-8 mr-1" src={user?.photoURL} />
                 }
 
                 {

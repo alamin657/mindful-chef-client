@@ -7,7 +7,7 @@ const Home = () => {
     return (
         <div>
             <div className="carousel  ">
-                <div id="slide1" className="carousel-item relative w-full h-96 bg-cover">
+                <div id="slide1" className="carousel-item relative w-full md:h-96 bg-cover md:ml-9">
                     <img src="https://img.freepik.com/free-photo/ingredients-cooking-gray-concrete_127032-2082.jpg" className="w-full" />
                     <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
                         <a href="#slide4" className="btn btn-circle">❮</a>

@@ -5,24 +5,31 @@ import { Link } from 'react-router-dom';
 const Register = () => {
     const [error, setError] = useState('');
     const [success, setSuccess] = useState('')
-    const { createUser } = useContext(AuthContext);
+    const { createUser, updateProfileUser } = useContext(AuthContext);
     const handleRegister = event => {
         event.preventDefault()
         setSuccess('');
         setError('');
         const form = event.target;
         const name = form.name.value;
-        const photo = form.photo.value;
+        const photoUrl = form.photo.value;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(name, photo, email, password);
         if (password.length < 6) {
             setError('Please add at least 6 characters in your password')
         }
         createUser(email, password)
             .then(result => {
-                const loggedUser = result.user
-                console.log(loggedUser);
+                const user = result.user
+                updateProfileUser(name, photoUrl, user)
+                    .then(result => {
+                        const user = result.user;
+                        console.log(user)
+                    })
+                    .catch(error => {
+                        console.log(error);
+                    })
+                console.log(user);
                 setSuccess('User has created successfully')
                 setError('')
 

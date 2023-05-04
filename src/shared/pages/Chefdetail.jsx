@@ -11,7 +11,7 @@ const Chefdetail = () => {
     return (
         <div>
             <h4 className='text-center text-2xl mt-1'>Famous <small className='text-blue-500'>Chef </small> Category</h4>
-            <div className='grid grid-cols-3 gap-1'>
+            <div className='grid md:grid-cols-3 gap-1'>
                 {
                     chefdetails.map(details => <Singledetails
                         key={details.id}

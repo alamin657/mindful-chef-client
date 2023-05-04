@@ -9,7 +9,7 @@ const AuthProviders = ({ children }) => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
     const createUser = (email, password) => {
-        setLoading(false)
+        setLoading(true)
         return createUserWithEmailAndPassword(auth, email, password)
 
     }
@@ -19,20 +19,22 @@ const AuthProviders = ({ children }) => {
 
     }
     const logOut = () => {
-        setLoading(false)
+        setLoading(true)
         return signOut(auth);
     }
     const googleProviderLogin = () => {
+        setLoading(true)
         return signInWithPopup(auth, googleProvider);
     }
     const githubProviderLogin = () => {
+        setLoading(true)
         return signInWithPopup(auth, githubProvider)
     }
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, loggedUser => {
             console.log('logged in user inside auth state observer', loggedUser);
             setUser(loggedUser);
-            setLoading(true);
+            setLoading(false);
         })
         return () => {
             unsubscribe();

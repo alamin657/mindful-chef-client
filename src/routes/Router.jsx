@@ -6,6 +6,7 @@ import Login from "../shared/pages/Login";
 import Register from "../shared/pages/Register";
 import Errorpage from "../shared/pages/Errorpage";
 import Review from "../Home/Review";
+import PrivateRoute from "./PrivateRoute";
 const router = createBrowserRouter([
     {
         path: '/',
@@ -29,7 +30,7 @@ const router = createBrowserRouter([
         },
         {
             path: 'details/:id',
-            element: <Review></Review>,
+            element: <PrivateRoute><Review></Review></PrivateRoute>,
             loader: ({ params }) => fetch(`http://localhost:5000/chefdetails/${params.id}`)
         }
 

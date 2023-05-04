@@ -4,6 +4,7 @@ import { AuthContext } from '../Providers/AuthProviders';
 
 
 const Header = () => {
+
     const { user, logOut } = useContext(AuthContext)
     const handleLogout = () => {
         logOut()
@@ -17,7 +18,8 @@ const Header = () => {
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
-                    <li><Link to='/'>Home</Link></li>
+                    <li><Link
+                        to='/'>Home</Link></li>
                     <li><Link to='/blog'>Blog</Link></li>
                     <li><Link to='/login'>Login</Link></li>
                     <li><Link to='/register'>Register</Link></li>
@@ -29,7 +31,7 @@ const Header = () => {
                 }
 
                 {
-                    user ? <button onClick={handleLogout} className="btn btn-active">SignUp</button> :
+                    user ? <button onClick={handleLogout} className="btn btn-active">SignOut</button> :
                         <Link to='/login'><button className="btn btn-active">SignIn</button></Link>
                 }
 

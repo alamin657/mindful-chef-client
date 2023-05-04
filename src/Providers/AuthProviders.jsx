@@ -31,6 +31,7 @@ const AuthProviders = ({ children }) => {
         return signInWithPopup(auth, githubProvider)
     }
     const updateProfileUser = (name, photoUrl, user) => {
+        setLoading(true)
         return updateProfile(user, {
             displayName: name,
             photoURL: photoUrl
@@ -40,8 +41,9 @@ const AuthProviders = ({ children }) => {
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, loggedUser => {
             console.log('logged in user inside auth state observer', loggedUser);
-            setUser(loggedUser);
             setLoading(false);
+            setUser(loggedUser);
+
         })
         return () => {
             unsubscribe();

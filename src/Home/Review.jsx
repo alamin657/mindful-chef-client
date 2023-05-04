@@ -14,7 +14,7 @@ const Review = () => {
 
 
     return (
-        <div className='grid grid-cols-2 ml-4 mt-4 gap-2'>
+        <div className='grid md:grid-cols-2 md:ml-4 mr-2 mt-4 gap-2'>
             <div className='border border-red-400 p-4 bg-slate-300'>
                 <div>
                     <h1>Name:{reviws.chefName}</h1>

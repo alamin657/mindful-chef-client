@@ -1,7 +1,9 @@
 import React from 'react';
 const Blog = () => {
+
     return (
-        <div className='grid grid-cols-2 gap-2 ml-4 mr-4'>
+
+        <div className='grid md:grid-cols-2 gap-2 ml-4 mr-4'>
             <div className='border border-red-400 p-4 bg-slate-200'>
                 <h2>1.Tell us the differences between uncontrolled and controlled components.?</h2>
                 <p>Controlled Component</p>

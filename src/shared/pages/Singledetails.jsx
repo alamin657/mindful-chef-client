@@ -2,11 +2,8 @@ import React from 'react';
 import { FaCheck } from "react-icons/fa";
 import LazyLoad from 'react-lazy-load';
 import { Link } from 'react-router-dom';
-// import { Link } from 'react-router-dom';
 const Singledetails = ({ details }) => {
-    // console.log(details)
     const { id, chefName, chefPicture, yearsOfExperience, numOfRecipes, likes } = details;
-    // console.log(id);
     return (
         <div>
             <div className=" card w-96 bg-base-100">

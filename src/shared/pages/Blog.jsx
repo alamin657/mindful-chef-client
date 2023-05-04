@@ -1,5 +1,4 @@
 import React from 'react';
-
 const Blog = () => {
     return (
         <div className='grid grid-cols-2 gap-2 ml-4 mr-4'>

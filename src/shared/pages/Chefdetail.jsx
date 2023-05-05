@@ -4,7 +4,7 @@ import Singledetails from './Singledetails';
 const Chefdetail = () => {
     const [chefdetails, setChefdetails] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/chefdetails')
+        fetch('https://mindful-chef-server-alamin657.vercel.app/chefdetails')
             .then(res => res.json())
             .then(data => setChefdetails(data))
     }, [])
